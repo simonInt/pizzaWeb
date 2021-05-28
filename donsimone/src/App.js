@@ -14,13 +14,14 @@ class App extends React.Component {
       pizzasInCart: 0
     }
   }
-
+  
   componentDidMount() {
-    fetch('https://localhost:44346/pizza', {
+    fetch('https://pizzaworld20210430170205.azurewebsites.net/pizza', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'Authorization':'Bearer'+ localStorage.getItem('access_token')
       }
     })
       .then(response => {
@@ -44,7 +45,6 @@ class App extends React.Component {
     if (localStorage.getItem("panier") !== null) {
       let pizzas = JSON.parse(localStorage.getItem("panier"));
 
-      console.log('couucou')
 
       pizzas.forEach(pizza => {
         numberOfPizzas += pizza.quantity;
@@ -64,10 +64,10 @@ class App extends React.Component {
     return (
       <div className="back">
         <Header pizzasInCart={this.state.pizzasInCart} />
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img class="d-block w-100" src={Banniere} alt="First slide"></img>
+        <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
+            <div className="carousel-inner">
+              <div className="carousel-item active">
+                <img className="d-block w-100" src={Banniere} alt="First slide"></img>
               </div>
             </div>
           </div>

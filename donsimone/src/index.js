@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import Panier from './Panier';
 import Login from './Login';
+import addPizza from './addPizza';
 import reportWebVitals from './reportWebVitals';
 import {
   BrowserRouter as Router,
@@ -19,7 +20,8 @@ const Root = () => {
       
         <Route exact path='/' component={App} />
         <Route exact path='/Login' component={Login}/>
-        <Route exact path='/panier' component={Panier} />
+        <Route exact path='/panier' component={Panier}/>
+        <ProtectedRoute exact path='/addPizza' component={addPizza}/>
       </Switch>
     </Router>
   )

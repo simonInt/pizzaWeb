@@ -11,13 +11,15 @@ class Login extends React.Component {
             loggedIn: false
         }
     }
+
     handleChange(e) {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
+
     handleClick() {
-        fetch('https://localhost:44346/auth/signin', {
+        fetch('https://pizzaworld20210430170205.azurewebsites.net/auth/signIn', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -32,10 +34,10 @@ class Login extends React.Component {
                 if (response.status !== 200) {
                     throw ("Erreur de connexion.");
                 }
-                return Response.json()
+                return response.json()
             })
-            .then(body => {
-                localStorage.setItem('access_token', body.token)
+            .then(token => {
+                localStorage.setItem('access_token', token)
                 this.setState({
                     loggedIn: true
                 })
@@ -62,21 +64,25 @@ class Login extends React.Component {
                             <div className="card-body">
                                 <form>
                                     <div className="input-group form-group">
-                                        
-                                        <input type="text" className="form-control" placeholder="Utilisateur" onChange={(e) => this.handleChange(e)} />
+
+                                        <input type="text" className="form-control" name="login" placeholder="Utilisateur" onChange={(e) => this.handleChange(e)} />
 
                                     </div>
                                     <div className="input-group form-group">
-                                        
-                                        <input type="password" className="form-control" placeholder="MotDePasse" onChange={(e) => this.handleChange(e)} />
+
+                                        <input type="password" className="form-control" name="password" placeholder="MotDePasse" onChange={(e) => this.handleChange(e)} />
                                     </div>
-                                    
+
                                     <div className="form-group">
                                         <button type="button" className="btn float-right login_btn" onClick={() => this.handleClick()} >Connexion</button>
                                     </div>
                                 </form>
                             </div>
-
+                            <div className="card-footer">
+                                <div className="d-flex justify-content-center">
+                                    <a href="/">Accueil</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

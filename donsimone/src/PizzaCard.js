@@ -42,7 +42,7 @@ class PizzaCard extends React.Component {
             <div className="col-md-3">
                 <div class="card w-75 pizzaCard">
                     <div class="card-body text-center">
-                        <img src={"/img/"+this.props.data.imgPath} className="card-img-top" alt="..." ></img>
+                        <img src={this.props.data.imgPath} className="card-img-top" alt="..." ></img>
                         <h5 className="card-title">{this.props.data.nom}</h5>
                         <p className="card-text">{this.props.data.description}</p>
                         <div className="addPizzaButtonDiv">

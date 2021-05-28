@@ -48,35 +48,24 @@ const validToken = (token) => {
 
  
 
-const ProtectedRoute = ({ children, ...rest }) => {
-
+const ProtectedRoute = ({ component: Component, ...rest }) => {
   return (
-
     <Route
-
       {...rest}
-
-      render={({ location }) =>
-
+      render ={({ props }) =>
         (localStorage.getItem("access_token") && validToken(localStorage.getItem("access_token"))) ? (
-
+          
           <Component {...props}/>
 
         ) : (
 
           <Redirect
             to='/login'
-
           />
-
         )
-
       }
-
     />
-
   );
-
 };
 
 export default ProtectedRoute;
