@@ -47,7 +47,7 @@ class CreeFilm extends React.Component {
   render(){
     return (
         <div className='signup-container'>
-  <div class='left-container'>
+  <div className='left-container'>
     <h1>
       <i className='fas fa-paw'></i>
       Ajouter une pizza

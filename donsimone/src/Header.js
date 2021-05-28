@@ -18,7 +18,7 @@ class Header extends React.Component {
                                 <a className="nav-link active" aria-current="page" href="/">Accueil</a>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link active" to='/panier'>Panier<span class="badge badge-secondary">{this.props.pizzasInCart}</span></Link>
+                                <Link className="nav-link active" to='/panier'>Panier<span className="badge badge-secondary">{this.props.pizzasInCart}</span></Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link active" to='/Login'>Connexion</Link>

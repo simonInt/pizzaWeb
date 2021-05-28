@@ -40,14 +40,14 @@ class PizzaCard extends React.Component {
     render() {
         return (
             <div className="col-md-3">
-                <div class="card w-75 pizzaCard">
-                    <div class="card-body text-center">
+                <div className="card w-75 pizzaCard">
+                    <div className="card-body text-center">
                         <img src={this.props.data.imgPath} className="card-img-top" alt="..." ></img>
                         <h5 className="card-title">{this.props.data.nom}</h5>
                         <p className="card-text">{this.props.data.description}</p>
                         <div className="addPizzaButtonDiv">
                         <div className="alignBottom">
-                            <button onClick={() => this.addPizza(this.props.data)} class="button btn btnAddPizza fas fa-shopping-cart" type="button">AJOUTER</button>
+                            <button onClick={() => this.addPizza(this.props.data)} className="button btn btnAddPizza fas fa-shopping-cart" type="button">AJOUTER</button>
                         </div>
                         </div>
                     </div>
